@@ -1,0 +1,14 @@
+Package: waluty
+Version: 1.1.5
+Architecture: armel
+Section: user/utilities
+Priority: optional
+Maintainer: N9 projekt <n9@localhost>
+Depends: python (>= 2.6), python-pyside.qtdeclarative, python-pyside.qtgui, python-dbus, qt-components, libqt4-network
+Installed-Size: 816
+Description: Currency converter for Nokia N9 (by Claude with smyhu)
+ Favourite currencies, live conversion, about 170 currencies and
+ popular cryptocurrencies, letter scroller, search by name, code or
+ symbol, rates in the Events feed refreshed in the background.
+ Polish, English, German, Spanish, Italian and French. Dark UI for the
+ AMOLED screen.

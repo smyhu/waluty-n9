@@ -1,0 +1,11 @@
+#!/bin/sh
+# stop the background service, so an upgrade starts the new version
+initctl stop apps/waluty-tlo >/dev/null 2>&1
+for f in /home/user/.local/share/data/waluty/tlo.pid /tmp/waluty-tlo.pid; do
+    if [ -f "$f" ]; then
+        pid="$(cat "$f")"
+        grep -q tlo.py "/proc/$pid/cmdline" 2>/dev/null && kill "$pid" 2>/dev/null
+        rm -f "$f"
+    fi
+done
+exit 0

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Waluty
+Comment=Currency converter
+Exec=/usr/bin/python /opt/waluty/main.py
+Icon=/usr/share/icons/hicolor/80x80/apps/waluty80.png
+Categories=Utility;

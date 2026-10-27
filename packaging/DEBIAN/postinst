@@ -1,0 +1,6 @@
+#!/bin/sh
+# start the background service now; after a reboot upstart starts it
+if [ "$1" = "configure" ]; then
+    initctl start apps/waluty-tlo >/dev/null 2>&1
+fi
+exit 0
