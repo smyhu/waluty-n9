@@ -385,7 +385,7 @@ Page {
     QueryDialog {
         id: aboutDialog
         icon: "file:///usr/share/icons/hicolor/80x80/apps/waluty80.png"
-        titleText: tr("title") + " 1.1.5"
+        titleText: tr("title") + " 1.1.6"
         message: tr("aboutText")
         acceptButtonText: tr("close")
     }
