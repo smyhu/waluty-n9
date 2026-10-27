@@ -61,6 +61,7 @@ uses plain HTTP.
 
 ## Credits and licences
 
+- Waluty itself: MIT (`LICENSE`).
 - Flags: [flag-icons](https://github.com/lipis/flag-icons), MIT (`packaging/LICENSE-flag-icons`).
 - Crypto icons: [cryptocurrency-icons](https://github.com/spothq/cryptocurrency-icons), CC0.
 - Currency names: Unicode CLDR.
@@ -84,3 +85,5 @@ napisany przez Claude (Anthropic) wspólnie ze smyhu.
 
 Instalacja: skopiuj `dist/waluty_1.1.6_armel.deb` do `/tmp` w telefonie i jako root wpisz
 `aegis-dpkg -i /tmp/waluty_1.1.6_armel.deb`.
+
+Licencja: MIT (plik `LICENSE`).
