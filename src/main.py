@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Waluty 1.1.7 - currency converter for the Nokia N9 (Python 2.6 + PySide + QML)
+# Waluty 1.1.8 - currency converter for the Nokia N9 (Python 2.6 + PySide + QML)
 # Written by Claude (Anthropic) together with smyhu.
 
 import os

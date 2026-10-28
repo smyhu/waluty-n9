@@ -25,10 +25,10 @@ and Binance public data (crypto).
 
 ## Install
 
-Copy `dist/waluty_1.1.7_armel.deb` to the phone, then as root (developer mode):
+Copy `dist/waluty_1.1.8_armel.deb` to the phone, then as root (developer mode):
 
 ```
-aegis-dpkg -i /tmp/waluty_1.1.7_armel.deb
+aegis-dpkg -i /tmp/waluty_1.1.8_armel.deb
 ```
 
 Requirements: PySide, python-dbus and Qt Components, all present on a standard PR1.3 phone.
@@ -83,7 +83,7 @@ napisany przez Claude (Anthropic) wspólnie ze smyhu.
 - Sześć języków: polski, angielski, niemiecki, hiszpański, włoski i francuski, zależnie od
   języka telefonu.
 
-Instalacja: skopiuj `dist/waluty_1.1.7_armel.deb` do `/tmp` w telefonie i jako root wpisz
-`aegis-dpkg -i /tmp/waluty_1.1.7_armel.deb`.
+Instalacja: skopiuj `dist/waluty_1.1.8_armel.deb` do `/tmp` w telefonie i jako root wpisz
+`aegis-dpkg -i /tmp/waluty_1.1.8_armel.deb`.
 
 Licencja: MIT (plik `LICENSE`).
