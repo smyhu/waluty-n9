@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 VERSION=$(sed -n 's/^Version: //p' packaging/DEBIAN/control)
 P=$(mktemp -d)
 chmod 755 $P
-mkdir -p $P/DEBIAN $P/opt/waluty $P/etc/init/apps $P/usr/share/applications \
+mkdir -p $P/DEBIAN $P/opt/waluty $P/etc/init/apps $P/usr/share/applications $P/usr/share/dbus-1/services \
          $P/usr/share/icons/hicolor/80x80/apps $P/usr/share/doc/waluty
 cp packaging/DEBIAN/* $P/DEBIAN/
 cp src/*.py $P/opt/waluty/
@@ -14,6 +14,7 @@ cp -r src/qml $P/opt/waluty/
 cp native/waluty-fetch-armel $P/opt/waluty/waluty-fetch
 cp packaging/init/waluty-tlo.conf $P/etc/init/apps/
 cp packaging/waluty.desktop $P/usr/share/applications/
+cp packaging/dbus/*.service $P/usr/share/dbus-1/services/
 cp packaging/waluty80.png $P/usr/share/icons/hicolor/80x80/apps/
 cp packaging/copyright packaging/LICENSE-flag-icons $P/usr/share/doc/waluty/
 chmod 755 $P/DEBIAN/postinst $P/DEBIAN/prerm $P/opt/waluty/main.py $P/opt/waluty/tlo.py \

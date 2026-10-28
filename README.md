@@ -12,7 +12,7 @@ written by Claude (Anthropic) together with smyhu.
   move or remove it.
 - Add currencies from a list with the N9 letter scroller. Search by name, ISO code or symbol
   (e.g. `zł`, `PLN`, `złoty`), in any of the six languages.
-- Rates in the Events (Feed) screen.
+- Rates in the Events (Feed) screen; tapping the entry opens the app.
 - Background refresh every 1, 3, 6, 12 or 24 hours, also when the app is closed. It only
   downloads when the phone is already online.
 - Polish, English, German, Spanish, Italian and French, following the phone language.
@@ -25,10 +25,10 @@ and Binance public data (crypto).
 
 ## Install
 
-Copy `dist/waluty_1.1.6_armel.deb` to the phone, then as root (developer mode):
+Copy `dist/waluty_1.1.7_armel.deb` to the phone, then as root (developer mode):
 
 ```
-aegis-dpkg -i /tmp/waluty_1.1.6_armel.deb
+aegis-dpkg -i /tmp/waluty_1.1.7_armel.deb
 ```
 
 Requirements: PySide, python-dbus and Qt Components, all present on a standard PR1.3 phone.
@@ -83,7 +83,7 @@ napisany przez Claude (Anthropic) wspólnie ze smyhu.
 - Sześć języków: polski, angielski, niemiecki, hiszpański, włoski i francuski, zależnie od
   języka telefonu.
 
-Instalacja: skopiuj `dist/waluty_1.1.6_armel.deb` do `/tmp` w telefonie i jako root wpisz
-`aegis-dpkg -i /tmp/waluty_1.1.6_armel.deb`.
+Instalacja: skopiuj `dist/waluty_1.1.7_armel.deb` do `/tmp` w telefonie i jako root wpisz
+`aegis-dpkg -i /tmp/waluty_1.1.7_armel.deb`.
 
 Licencja: MIT (plik `LICENSE`).

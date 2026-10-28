@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Waluty 1.1.0 - currency converter for the Nokia N9 (Python 2.6 + PySide + QML)
+# Waluty 1.1.7 - currency converter for the Nokia N9 (Python 2.6 + PySide + QML)
 # Written by Claude (Anthropic) together with smyhu.
 
 import os
@@ -117,10 +117,62 @@ class Downloader(QObject):
         return unicode(json.dumps(self.results.pop(0)))
 
 
+class Window(object):
+    """One copy of the app on the session bus. Tapping the Events entry, or
+    the icon while the app runs, only brings the window to the front."""
+
+    def __init__(self):
+        self.view = None
+        self.bus = None
+        try:
+            import dbus
+            import dbus.service
+            from dbus.mainloop.glib import DBusGMainLoop
+        except ImportError, e:
+            print 'waluty: no D-Bus main loop, Events entry cannot open the app:', e
+            return
+        DBusGMainLoop(set_as_default=True)   # Qt on the N9 runs a glib loop
+        bus = dbus.SessionBus()
+        flags = dbus.bus.NAME_FLAG_DO_NOT_QUEUE
+        if bus.request_name(common.BUS_NAME, flags) != dbus.bus.REQUEST_NAME_REPLY_PRIMARY_OWNER:
+            self.bus = bus
+            return
+        owner = self
+
+        class Service(dbus.service.Object):
+            @dbus.service.method(common.BUS_NAME, in_signature='', out_signature='')
+            def top(self):
+                owner.top()
+
+        self.service = Service(bus, '/')
+
+    def running_elsewhere(self):
+        """True if another copy owns the name; that copy is brought to the front."""
+        if not self.bus:
+            return False
+        try:
+            self.bus.get_object(common.BUS_NAME, '/').top(dbus_interface=common.BUS_NAME)
+        except Exception, e:
+            print 'waluty: cannot reach the running copy:', e
+        return True
+
+    def top(self):
+        if self.view:
+            self.view.showFullScreen()
+            self.view.raise_()
+            self.view.activateWindow()
+
+
 def main():
+    # D-Bus activation (Events entry) may start us without DISPLAY
+    os.environ.setdefault('DISPLAY', ':0')
     app = QApplication(sys.argv)
     app.setApplicationName('waluty')
     app.setOrganizationName('waluty')
+
+    window = Window()
+    if window.running_elsewhere():
+        return
 
     lang = common.phone_language()
 
@@ -139,6 +191,7 @@ def main():
     view.setResizeMode(QDeclarativeView.SizeRootObjectToView)
     view.setSource(QUrl.fromLocalFile(os.path.join(APP_DIR, 'qml', 'main.qml')))
     view.showFullScreen()
+    window.view = view
     sys.exit(app.exec_())
 
 

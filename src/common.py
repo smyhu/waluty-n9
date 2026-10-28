@@ -14,6 +14,9 @@ import datetime
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 FETCH = os.path.join(APP_DIR, 'waluty-fetch')
 SOURCE_NAME = 'waluty'
+# D-Bus name of the running app; tapping the Events entry calls BUS_NAME.top()
+BUS_NAME = 'com.github.smyhu.waluty'
+FEED_ACTION = '%s / %s top' % (BUS_NAME, BUS_NAME)   # MRemoteAction::toString()
 ICON = '/usr/share/icons/hicolor/80x80/apps/waluty80.png'
 LANGUAGES = ('pl', 'en', 'de', 'es', 'it', 'fr')
 # home of the phone user. Not $HOME (aegis-exec keeps root's), and the password
@@ -119,6 +122,7 @@ def feed_publish(title, body):
             'timestamp': datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S'),
             'sourceName': SOURCE_NAME,
             'sourceDisplayName': 'Waluty',
+            'action': FEED_ACTION,
         }, signature='sv'))
     except Exception, e:
         log('feed publish failed: %s' % e)
